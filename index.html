@@ -1,195 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workly | The Future of the Gig Economy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #6366f1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-bg {
-            background-color: #0f172a;
-        }
-    </style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="./files/workly-icon-BnXiTzf_.png">
+	<link rel="apple-touch-icon" href="./files/workly-icon-BnXiTzf_.png">
+	<link rel="preload" as="image" href="./files/workly-icon-BnXiTzf_.png">
+	<link rel="preload" as="image" href="./files/hero-phone-SVm27KJ3.jpg">
+	<link rel="stylesheet" href="./files/styles-DfjZ_AsH.css" data-precedence="default">
+	<title>Workly</title>
+	<meta name="author" content="Lovable">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@Lovable">
+	<meta name="twitter:title" content="Lovable App">
+	<meta name="twitter:description"
+		content="Your Creative Space is a web application for managing and showcasing creative projects.">
+	<meta property="og:image"
+		content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f894482-6d25-48e5-95ad-2e3687922519/id-preview-9f0d0e5e--80d584fc-6b63-49dc-a532-8b3df10802a3.lovable.app-1778526831799.png">
+	<meta name="twitter:image"
+		content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f894482-6d25-48e5-95ad-2e3687922519/id-preview-9f0d0e5e--80d584fc-6b63-49dc-a532-8b3df10802a3.lovable.app-1778526831799.png">
+	<meta name="description"
+		content="Workly is a cross-platform mobile app built with Expo, React Native and Supabase. Auth, dashboard, social feed, posts and profiles.">
+	<meta property="og:title" content="Workly — Cross-platform mobile app">
+	<meta property="og:description"
+		content="A modern Expo + Supabase app: authentication, feed, explore, posts and profiles.">
+	<link rel="modulepreload" href="https://hug-a-tree-site.lovable.app/assets/index-D407iPYb.js">
+	<link rel="modulepreload" href="https://hug-a-tree-site.lovable.app/assets/index-zcUfX2o4.js">
+	<style>
+		@font-face {
+			font-family: 'CameraPlainVariable';
+			src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+			font-weight: 100 900;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		#lovable-badge {
+			--badge-bg: #1b1b1b;
+			--badge-text: #c5c1b9;
+			--badge-text-hover: #dcdad5;
+			--badge-radius: 6px;
+			--badge-padding: 8px;
+			--badge-gap: 6px;
+			--badge-shadow:
+				0 0 0 1px rgba(0, 0, 0, 0.88),
+				0 1px 0 0 rgba(0, 0, 0, 0.04),
+				0 2px 2px -1px rgba(0, 0, 0, 0.08),
+				0 4px 4px -2px rgba(0, 0, 0, 0.08),
+				0 8px 8px -4px rgba(0, 0, 0, 0.08),
+				0 16px 16px -8px rgba(0, 0, 0, 0.08);
+			--badge-transition-duration: 0.2s;
+			--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
+			--focus-color: #575ECF;
+			--focus-offset: 2px;
+			--focus-width: 2px;
+
+			position: fixed;
+			bottom: 12px;
+			right: 12px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			z-index: 1000000;
+			background-color: var(--badge-bg);
+			color: var(--badge-text);
+			border-radius: var(--badge-radius);
+			box-shadow: var(--badge-shadow);
+			font-size: 12px;
+			font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 400 !important;
+			text-transform: none !important;
+			font-feature-settings: normal !important;
+			transform: translateZ(0);
+			will-change: transform, opacity;
+		}
+
+		#lovable-badge-cta {
+			display: flex;
+			align-items: center;
+			gap: var(--badge-gap);
+			padding: 0 var(--badge-padding);
+			height: 100%;
+			color: inherit;
+			text-decoration: none;
+			white-space: nowrap;
+			border-radius: var(--badge-radius) 0 0 var(--badge-radius);
+			transition:
+				background-color var(--badge-transition-duration) ease,
+				color var(--badge-transition-duration) ease,
+				transform 0.1s ease;
+		}
+
+		#lovable-badge-cta:hover {
+			background: rgba(255, 255, 255, 0.04);
+			color: var(--badge-text-hover);
+		}
+
+		#lovable-badge-cta:active {
+			transform: scale(0.98);
+		}
+
+		#lovable-badge-cta:focus {
+			outline: none;
+		}
+
+		#lovable-badge-cta:focus-visible {
+			outline: var(--focus-width) solid var(--focus-color);
+			outline-offset: var(--focus-offset);
+			z-index: 1;
+		}
+
+		#lovable-badge-text {
+			line-height: 1;
+		}
+
+		#lovable-badge-divider {
+			width: 1px;
+			height: 24px;
+			background-color: rgba(255, 255, 255, 0.04);
+			flex-shrink: 0;
+		}
+
+		#lovable-badge-close {
+			width: 24px;
+			height: 24px;
+			min-width: 24px;
+			min-height: 24px;
+			cursor: pointer;
+			background: none;
+			border: none;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
+			flex-shrink: 0;
+			transition:
+				background-color var(--badge-transition-duration) ease,
+				transform 0.1s ease;
+		}
+
+		#lovable-badge-close:hover {
+			background: rgba(255, 255, 255, 0.04);
+		}
+
+		#lovable-badge-close:active {
+			transform: scale(0.92);
+		}
+
+		#lovable-badge-close:focus {
+			outline: none;
+		}
+
+		#lovable-badge-close:focus-visible {
+			outline: var(--focus-width) solid var(--focus-color);
+			outline-offset: calc(var(--focus-offset) * -1);
+			z-index: 1;
+		}
+
+		#lovable-badge-close svg path {
+			fill: var(--badge-text);
+			transition: fill var(--badge-transition-duration) ease;
+		}
+
+		#lovable-badge-close:hover svg path {
+			fill: var(--badge-text-hover);
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+
+			#lovable-badge-cta,
+			#lovable-badge-close,
+			#lovable-badge-close svg path {
+				transition: none;
+			}
+
+			#lovable-badge-cta:active,
+			#lovable-badge-close:active {
+				transform: none;
+			}
+		}
+
+		@media (prefers-contrast: high) {
+			#lovable-badge {
+				--badge-bg: #000;
+				--badge-text: #fff;
+				--badge-text-hover: #fff;
+				border: 2px solid currentColor;
+			}
+
+			#lovable-badge-cta:focus-visible,
+			#lovable-badge-close:focus-visible {
+				outline-width: 3px;
+			}
+		}
+	</style>
+	<script defer="" src="./files/_flock.js.download" data-proxy-url="/~api/analytics"></script>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold gradient-text">Workly</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="hover:text-indigo-600 transition">Features</a>
-                    <a href="#tech" class="hover:text-indigo-600 transition">Tech Stack</a>
-                    <a href="#business" class="hover:text-indigo-600 transition">Business</a>
-                    <a href="#team" class="hover:text-indigo-600 transition">The Team</a>
-                </div>
-                <div>
-                    <button class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition">Get Started</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body><!--$-->
+	<main class="min-h-screen overflow-x-hidden">
+		<header class="sticky top-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/50">
+			<div class="container mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+				<div class="flex items-center gap-2"><img src="./files/workly-icon-BnXiTzf_.png" alt="Workly logo"
+						width="32" height="32" class="h-8 w-8 rounded-lg shadow-glow"><span
+						class="font-bold text-lg tracking-tight">Workly</span></div>
+				<nav class="hidden md:flex items-center gap-8 text-sm text-muted-foreground"><a
+						href="https://hug-a-tree-site.lovable.app/#features"
+						class="hover:text-foreground transition">Features</a><a
+						href="https://hug-a-tree-site.lovable.app/#stack" class="hover:text-foreground transition">Tech
+						Stack</a><a href="https://hug-a-tree-site.lovable.app/#demo"
+						class="hover:text-foreground transition">Demo</a><a
+						href="https://hug-a-tree-site.lovable.app/#get" class="hover:text-foreground transition">Get
+						Started</a></nav><a href="https://github.com/micuchichu/app" target="_blank" rel="noreferrer"
+					class="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm hover:bg-secondary transition"><svg
+						xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						class="lucide lucide-github h-4 w-4" aria-hidden="true">
+						<path
+							d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+						</path>
+						<path d="M9 18c-4.51 2-5-2-7-2"></path>
+					</svg> GitHub</a>
+			</div>
+		</header>
+		<section class="relative">
+			<div class="container mx-auto max-w-7xl px-6 pt-20 pb-24 grid lg:grid-cols-2 gap-12 items-center">
+				<div class="animate-fade-up"><span
+						class="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground mb-6"><span
+							class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>v1.0 — now available</span>
+					<h1 class="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">The social app for <span
+							class="text-gradient">getting things done</span>.</h1>
+					<p class="mt-6 text-lg text-muted-foreground max-w-xl">Workly is a cross-platform mobile app built
+						with Expo, React Native and Supabase — auth, dashboards, a social feed, posts and profiles in
+						one polished experience.</p>
+					<div class="mt-8 flex flex-wrap gap-3"><a href="https://github.com/micuchichu/app/releases/tag/v1.0"
+							target="_blank" rel="noreferrer"
+							class="inline-flex items-center gap-2 rounded-full bg-gradient-brand text-primary-foreground px-6 py-3 font-medium shadow-glow hover:opacity-95 transition"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-download h-4 w-4" aria-hidden="true">
+								<path d="M12 15V3"></path>
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+								<path d="m7 10 5 5 5-5"></path>
+							</svg> Download v1.0</a><a href="https://youtube.com/shorts/K6pysQxXq-k?feature=share"
+							target="_blank" rel="noreferrer"
+							class="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 font-medium hover:bg-card transition"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-play h-4 w-4" aria-hidden="true">
+								<path
+									d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z">
+								</path>
+							</svg> Watch the pitch</a>
+						<a href="#demo"
+							class="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 font-medium hover:bg-card transition">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-monitor h-4 w-4" aria-hidden="true">
+								<rect width="20" height="14" x="2" y="3" rx="2" />
+								<path d="M8 21h8M12 17v4" />
+							</svg>
+							View Demo
+						</a>
+					</div>
+					<div class="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
+						<div>
+							<div class="text-foreground font-semibold">Expo 54</div>
+							<div>React Native 0.81</div>
+						</div>
+						<div class="h-8 w-px bg-border"></div>
+						<div>
+							<div class="text-foreground font-semibold">Supabase</div>
+							<div>Auth &amp; Database</div>
+						</div>
+						<div class="h-8 w-px bg-border"></div>
+						<div>
+							<div class="text-foreground font-semibold">iOS · Android</div>
+							<div>EAS Build</div>
+						</div>
+					</div>
+				</div>
+				<div class="relative animate-float">
+					<div class="absolute -inset-10 bg-gradient-brand opacity-20 blur-3xl rounded-full"></div><img
+						src="./files/hero-phone-SVm27KJ3.jpg" alt="Workly mobile app preview" width="1536" height="1536"
+						class="relative rounded-3xl shadow-glow border border-border/50">
+				</div>
+			</div>
+		</section>
+		<section id="features" class="container mx-auto max-w-7xl px-6 py-24">
+			<div class="max-w-2xl">
+				<h2 class="text-4xl md:text-5xl font-bold tracking-tight">Everything a modern app needs.</h2>
+				<p class="mt-4 text-muted-foreground">Six core screens, built with file-based routing through Expo
+					Router and a Supabase backend.</p>
+			</div>
+			<div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-users h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+							<path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+							<path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+							<circle cx="9" cy="7" r="4"></circle>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Authentication</h3>
+					<p class="mt-2 text-sm text-muted-foreground">Sign up, login &amp; email verification powered by
+						Supabase Auth.</p>
+				</div>
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-smartphone h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+							<path d="M12 18h.01"></path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Dashboard</h3>
+					<p class="mt-2 text-sm text-muted-foreground">A clean home screen surfacing what matters to each
+						user.</p>
+				</div>
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-compass h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<circle cx="12" cy="12" r="10"></circle>
+							<path
+								d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z">
+							</path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Explore</h3>
+					<p class="mt-2 text-sm text-muted-foreground">Discover content &amp; people through a fast search
+						experience.</p>
+				</div>
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-message-square h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<path
+								d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z">
+							</path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Social Feed</h3>
+					<p class="mt-2 text-sm text-muted-foreground">An activity feed with posts, interactions and updates.
+					</p>
+				</div>
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-sparkles h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<path
+								d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+							</path>
+							<path d="M20 2v4"></path>
+							<path d="M22 4h-4"></path>
+							<circle cx="4" cy="20" r="2"></circle>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Create Posts</h3>
+					<p class="mt-2 text-sm text-muted-foreground">Share moments instantly with a frictionless composer.
+					</p>
+				</div>
+				<div
+					class="group relative rounded-2xl border border-border bg-card/50 p-6 hover:bg-card transition shadow-card-elegant">
+					<div
+						class="h-11 w-11 rounded-xl bg-gradient-brand flex items-center justify-center shadow-glow mb-5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+							class="lucide lucide-circle-user h-5 w-5 text-primary-foreground" aria-hidden="true">
+							<circle cx="12" cy="12" r="10"></circle>
+							<circle cx="12" cy="10" r="3"></circle>
+							<path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-lg">Profiles</h3>
+					<p class="mt-2 text-sm text-muted-foreground">Personal spaces with user details and history.</p>
+				</div>
+			</div>
+		</section>
+		<section id="stack" class="relative py-24 border-y border-border/50 bg-card/30">
+			<div class="container mx-auto max-w-7xl px-6">
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div><span
+							class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-zap h-3.5 w-3.5" aria-hidden="true">
+								<path
+									d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+								</path>
+							</svg> Tech Stack</span>
+						<h2 class="mt-3 text-4xl md:text-5xl font-bold tracking-tight">Built on a <span
+								class="text-gradient">battle-tested</span> foundation.</h2>
+						<p class="mt-4 text-muted-foreground max-w-lg">Expo + React Native deliver native performance
+							across iOS and Android, while Supabase handles authentication and data with a clean
+							developer experience.</p>
+						<div class="mt-8 grid grid-cols-2 gap-4 max-w-md">
+							<div class="flex items-start gap-3">
+								<div
+									class="h-9 w-9 rounded-lg border border-border bg-card flex items-center justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" class="lucide lucide-smartphone h-4 w-4 text-primary"
+										aria-hidden="true">
+										<rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+										<path d="M12 18h.01"></path>
+									</svg>
+								</div>
+								<div>
+									<div class="text-xs text-muted-foreground">Cross-platform</div>
+									<div class="text-sm font-semibold">iOS · Android</div>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									class="h-9 w-9 rounded-lg border border-border bg-card flex items-center justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" class="lucide lucide-database h-4 w-4 text-primary"
+										aria-hidden="true">
+										<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+										<path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+										<path d="M3 12A9 3 0 0 0 21 12"></path>
+									</svg>
+								</div>
+								<div>
+									<div class="text-xs text-muted-foreground">Backend</div>
+									<div class="text-sm font-semibold">Supabase</div>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									class="h-9 w-9 rounded-lg border border-border bg-card flex items-center justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" class="lucide lucide-map h-4 w-4 text-primary"
+										aria-hidden="true">
+										<path
+											d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z">
+										</path>
+										<path d="M15 5.764v15"></path>
+										<path d="M9 3.236v15"></path>
+									</svg>
+								</div>
+								<div>
+									<div class="text-xs text-muted-foreground">Maps</div>
+									<div class="text-sm font-semibold">Google Maps</div>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div
+									class="h-9 w-9 rounded-lg border border-border bg-card flex items-center justify-center">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+										fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" class="lucide lucide-sparkles h-4 w-4 text-primary"
+										aria-hidden="true">
+										<path
+											d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+										</path>
+										<path d="M20 2v4"></path>
+										<path d="M22 4h-4"></path>
+										<circle cx="4" cy="20" r="2"></circle>
+									</svg>
+								</div>
+								<div>
+									<div class="text-xs text-muted-foreground">Animations</div>
+									<div class="text-sm font-semibold">Reanimated 4</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Expo ~54</div>
+							<div class="text-xs text-muted-foreground mt-1">React Native 0.81</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">TypeScript 5.9</div>
+							<div class="text-xs text-muted-foreground mt-1">Strict types</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Expo Router</div>
+							<div class="text-xs text-muted-foreground mt-1">File-based routing</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Supabase</div>
+							<div class="text-xs text-muted-foreground mt-1">Auth &amp; database</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">React Navigation</div>
+							<div class="text-xs text-muted-foreground mt-1">Tabs &amp; stack</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Reanimated 4</div>
+							<div class="text-xs text-muted-foreground mt-1">Smooth animations</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Google Maps</div>
+							<div class="text-xs text-muted-foreground mt-1">react-native-maps</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">Flash List</div>
+							<div class="text-xs text-muted-foreground mt-1">Performant lists</div>
+						</div>
+						<div
+							class="rounded-xl border border-border bg-background/60 p-4 hover:border-primary/50 transition">
+							<div class="font-semibold text-sm">EAS Build</div>
+							<div class="text-xs text-muted-foreground mt-1">Production builds</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="demo" class="container mx-auto max-w-7xl px-6 py-24">
+			<div class="text-center max-w-2xl mx-auto">
+				<h2 class="text-4xl md:text-5xl font-bold tracking-tight">See Workly in action.</h2>
+				<p class="mt-4 text-muted-foreground">Short demos of the app — the pitch and a walkthrough of the
+					experience.</p>
+			</div>
+			<div class="mt-12 grid md:grid-cols-2 gap-6"><a href="https://youtube.com/shorts/K6pysQxXq-k?feature=share"
+					target="_blank" rel="noreferrer"
+					class="group relative block rounded-2xl overflow-hidden border border-border bg-card shadow-card-elegant">
+					<div class="aspect-video relative"><img src="./files/mqdefault.jpg" alt="Workly Pitch"
+							loading="lazy"
+							class="absolute inset-0 h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent">
+						</div>
+						<div class="absolute inset-0 flex items-center justify-center">
+							<div
+								class="h-16 w-16 rounded-full bg-gradient-brand flex items-center justify-center shadow-glow group-hover:scale-110 transition">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-play h-6 w-6 text-primary-foreground fill-current"
+									aria-hidden="true">
+									<path
+										d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z">
+									</path>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="p-5 flex items-center justify-between">
+						<div>
+							<div class="font-semibold">Workly Pitch</div>
+							<div class="text-sm text-muted-foreground">Why Workly exists</div>
+						</div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+							fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-arrow-right h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition"
+							aria-hidden="true">
+							<path d="M5 12h14"></path>
+							<path d="m12 5 7 7-7 7"></path>
+						</svg>
+					</div>
+				</a><a href="https://youtube.com/shorts/rauKAnaPsD4" target="_blank" rel="noreferrer"
+					class="group relative block rounded-2xl overflow-hidden border border-border bg-card shadow-card-elegant">
+					<div class="aspect-video relative"><img src="./files/maxresdefault.jpg" alt="Workly Demo"
+							loading="lazy"
+							class="absolute inset-0 h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent">
+						</div>
+						<div class="absolute inset-0 flex items-center justify-center">
+							<div
+								class="h-16 w-16 rounded-full bg-gradient-brand flex items-center justify-center shadow-glow group-hover:scale-110 transition">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-play h-6 w-6 text-primary-foreground fill-current"
+									aria-hidden="true">
+									<path
+										d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z">
+									</path>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="p-5 flex items-center justify-between">
+						<div>
+							<div class="font-semibold">Workly Demo</div>
+							<div class="text-sm text-muted-foreground">A tour of the app</div>
+						</div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+							fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-arrow-right h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition"
+							aria-hidden="true">
+							<path d="M5 12h14"></path>
+							<path d="m12 5 7 7-7 7"></path>
+						</svg>
+					</div>
+				</a></div>
+		</section>
+		<section id="get" class="container mx-auto max-w-7xl px-6 pb-24">
+			<div
+				class="relative overflow-hidden rounded-3xl border border-border bg-card/50 p-10 md:p-16 shadow-card-elegant">
+				<div class="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-gradient-brand opacity-30 blur-3xl">
+				</div>
+				<div class="relative grid lg:grid-cols-2 gap-10 items-center">
+					<div>
+						<h2 class="text-4xl md:text-5xl font-bold tracking-tight">Try it yourself.</h2>
+						<p class="mt-4 text-muted-foreground">Clone the repository, drop in your Supabase keys and run
+							it on any device with Expo.</p>
+						<div class="mt-8 flex flex-wrap gap-3"><a href="https://github.com/micuchichu/app"
+								target="_blank" rel="noreferrer"
+								class="inline-flex items-center gap-2 rounded-full bg-gradient-brand text-primary-foreground px-6 py-3 font-medium shadow-glow hover:opacity-95 transition"><svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-github h-4 w-4" aria-hidden="true">
+									<path
+										d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+									</path>
+									<path d="M9 18c-4.51 2-5-2-7-2"></path>
+								</svg> View on GitHub<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+									stroke-linecap="round" stroke-linejoin="round"
+									class="lucide lucide-arrow-right h-4 w-4" aria-hidden="true">
+									<path d="M5 12h14"></path>
+									<path d="m12 5 7 7-7 7"></path>
+								</svg></a>
+							<div
+								class="flex flex-col gap-1 rounded-2xl border border-border bg-background/60 px-4 py-2 text-sm text-muted-foreground">
+								<div>Email: <span class="text-foreground font-mono">workly.test1@gmail.com</span></div>
+								<div>Parolă: <span class="text-foreground font-mono">Workly123!</span></div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="rounded-2xl border border-border bg-background/80 p-5 font-mono text-sm overflow-x-auto">
+						<div class="text-muted-foreground mb-2"># clone &amp; run</div>
+						<pre class="text-foreground leading-7">git clone https://github.com/micuchichu/app.git
+cd app
+npm install
+npx expo start</pre>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="border-t border-border/50 py-10">
+			<div
+				class="container mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+				<div class="flex items-center gap-2"><img src="./files/workly-icon-BnXiTzf_.png" alt="Workly" width="24"
+						height="24" loading="lazy" class="h-6 w-6 rounded-md"><span>Workly · built by MicroMinds</span>
+				</div>
+				<div class="flex gap-6"><a href="https://github.com/micuchichu/app"
+						class="hover:text-foreground transition">GitHub</a><a
+						href="https://github.com/micuchichu/app/releases/tag/v1.0"
+						class="hover:text-foreground transition">Releases</a></div>
+			</div>
+		</footer>
+	</main><!--/$-->
+	<aside id="lovable-badge" role="complementary" dir="ltr" lang="en" aria-label="Edit with Lovable" class="closing"
+		style="display: none;">
+		<a id="lovable-badge-cta" target="_blank"
+			href="https://lovable.dev/projects/80d584fc-6b63-49dc-a532-8b3df10802a3?utm_source=lovable-badge"
+			rel="noopener nofollow" aria-label="Edit with Lovable">
+			<span id="lovable-badge-text">Edit with</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
+				<path fill="#FCFBF8" fill-rule="evenodd"
+					d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z"
+					clip-rule="evenodd"></path>
+				<path fill="#FCFBF8"
+					d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z">
+				</path>
+				<path fill="url(#a)" fill-rule="evenodd"
+					d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z"
+					clip-rule="evenodd"></path>
+				<defs>
+					<radialgradient id="a" cx="0" cy="0" r="1"
+						gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)"
+						gradientUnits="userSpaceOnUse">
+						<stop offset=".106" stop-color="#FE7B02"></stop>
+						<stop offset=".394" stop-color="#FE3F21"></stop>
+						<stop offset=".608" stop-color="#F858BC"></stop>
+						<stop offset=".929" stop-color="#575ECF"></stop>
+					</radialgradient>
+				</defs>
+			</svg>
 
-    <section class="hero-bg text-white py-20 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
-                Work is now a <span class="gradient-text">Swipe</span> away.
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-                Transformăm recrutarea într-o experiență reel-based. Fără CV-uri plictisitoare, doar interacțiune pură și oportunități reale pentru Gen-Z.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 w-64">
-                    <i class="fa-solid fa-play text-indigo-400 text-3xl mb-3"></i>
-                    <h3 class="font-bold">Reel-Based Jobs</h3>
-                    <p class="text-sm text-slate-500">Vezi jobul în 30 de secunde.</p>
-                </div>
-                <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 w-64">
-                    <i class="fa-solid fa-hand-holding-dollar text-purple-400 text-3xl mb-3"></i>
-                    <h3 class="font-bold">Bidding System</h3>
-                    <p class="text-sm text-slate-500">Tu îți stabilești valoarea.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="features" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-16 underline decoration-indigo-500 decoration-4 underline-offset-8">Ce oferă Workly?</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-6">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-magnifying-glass-location text-indigo-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Explore & Map</h3>
-                    <p class="text-slate-600">Filtrează joburile după tag-uri (IT, Online, Full-time) sau găsește-le pe hartă în timp real.</p>
-                </div>
-                <div class="p-6">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-briefcase text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Service Marketplace</h3>
-                    <p class="text-slate-600">Nu doar cauți joburi, ci îți oferi serviciile. Postează ce știi să faci și lasă clienții să te găsească.</p>
-                </div>
-                <div class="p-6">
-                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fa-solid fa-check-double text-pink-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Smart Dashboard</h3>
-                    <p class="text-slate-600">Gestionare completă: swipe right pentru a accepta candidații și contact instant prin email/telefon.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+		</a>
 
-    <section id="tech" class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6">Technical Architecture</h2>
-            <p class="text-slate-600 mb-12">O infrastructură robustă pentru scalabilitate maximă.</p>
-            <div class="flex flex-wrap justify-center gap-12 grayscale opacity-70 hover:grayscale-0 transition-all">
-                <div class="flex flex-col items-center">
-                    <span class="text-xl font-bold text-slate-800 italic">React Native & Expo</span>
-                    <p class="text-xs text-slate-500">Cross-platform UI</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-xl font-bold text-emerald-600">Supabase</span>
-                    <p class="text-xs text-slate-500">PostgreSQL & Auth</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-xl font-bold text-blue-500">Real-time DB</span>
-                    <p class="text-xs text-slate-500">Instant Bidding</p>
-                </div>
-            </div>
-        </div>
-    </section>
+		<span id="lovable-badge-divider" aria-hidden="true"></span>
 
-    <section id="business" class="py-20 bg-indigo-900 text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Business Monetization</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span><b>Comision de Succes:</b> Taxă mică la finalizarea unui contract/job.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span><b>Sponsored Reels:</b> Companiile plătesc pentru vizibilitate prioritară în feed.</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span><b>Advanced Hiring Tools:</b> Abonament Pro pentru recrutori cu AI analytics.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white/10 p-8 rounded-3xl border border-white/20">
-                    <h3 class="text-2xl font-bold mb-4">Target Market</h3>
-                    <p class="text-indigo-200">Ne adresăm pieței Gig Economy (450 mld. $), concentrându-ne pe segmentul de freelancing și joburi entry-level/mid-level unde viteza este crucială.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+		<button id="lovable-badge-close" aria-label="Dismiss" title="Dismiss" type="button">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"
+				aria-hidden="true">
+				<path
+					d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z">
+				</path>
+			</svg>
+		</button>
+	</aside>
+	<script>
+		// Don't show the lovable-badge if the page is in an iframe or if it's being rendered by puppeteer (screenshot service)
+		if (window.self !== window.top || navigator.userAgent.includes('puppeteer')) {
+			// the page is in an iframe
+			var badge = document.getElementById('lovable-badge');
+			if (badge) {
+				badge.style.display = 'none';
+			}
+		}
 
-    <section id="team" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-16">Meet the Team</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Petreanu" alt="Petreanu">
-                    </div>
-                    <h4 class="font-bold">Petreanu</h4>
-                    <p class="text-sm text-indigo-600 font-medium italic">CEO & Business</p>
-                </div>
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Misu" alt="Misu">
-                    </div>
-                    <h4 class="font-bold">Misu</h4>
-                    <p class="text-sm text-indigo-600 font-medium italic">Expo & React Lead</p>
-                </div>
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Iustin" alt="Iustin">
-                    </div>
-                    <h4 class="font-bold">Iustin</h4>
-                    <p class="text-sm text-indigo-600 font-medium italic">Expo, React & Auth</p>
-                </div>
-                <div>
-                    <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Admin" alt="You">
-                    </div>
-                    <h4 class="font-bold">Echipa Backend</h4>
-                    <p class="text-sm text-indigo-600 font-medium italic">Supabase & Data</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <span class="text-2xl font-bold gradient-text">Workly</span>
-                <p class="text-sm mt-2">Connecting Gen-Z with the right opportunities.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-white"><i class="fa-brands fa-github text-xl"></i></a>
-                <a href="#" class="hover:text-white"><i class="fa-brands fa-linkedin text-xl"></i></a>
-            </div>
-        </div>
-        <div class="text-center mt-10 text-xs border-t border-slate-800 pt-6">
-            &copy; 2026 Workly Team. Built for the competition.
-        </div>
-    </footer>
-
+		// Add click event listener to close button with animation
+		var closeButton = document.getElementById('lovable-badge-close');
+		if (closeButton) {
+			closeButton.addEventListener('click', function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+				var badge = document.getElementById('lovable-badge');
+				if (badge) {
+					badge.classList.add('closing');
+					setTimeout(function () {
+						if (badge) {
+							badge.style.display = 'none';
+						}
+					}, 240);
+				}
+			});
+		}
+	</script>
 </body>
+
 </html>
