@@ -1,2 +1,0 @@
-# workly-site
-workly-site
